@@ -39,6 +39,14 @@ const pool = mysql.createPool({
   connectionLimit: 10,
   queueLimit: 0,
 });
-console.log("✅ MySQL Database Connected!");
+
+// ✅ Log database connection status
+pool.getConnection()
+    .then(() => console.log("✅ Connected to MySQL"))
+ 
+    .catch((err) => {
+        console.error("❌ Database connection failed:", err.message);
+        console.error("🔹 Check if your .env file has the correct database credentials.");
+    });
 export default pool;
 
