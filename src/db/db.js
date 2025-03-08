@@ -30,6 +30,7 @@ import dotenv from "dotenv";
 dotenv.config(); // Load environment variables
 
 const pool = mysql.createPool({
+database:process.env.MYSQL_DATABASE,
   host: process.env.MYSQLHOST, 
   user: process.env.MYSQLUSER,
   password: process.env.MYSQLPASSWORD,
